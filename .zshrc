@@ -105,3 +105,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Dotfiles bare repository alias
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
+alias vim='nvim'
