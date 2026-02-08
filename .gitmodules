@@ -1,0 +1,8 @@
+[submodule ".config/nvim/.config/nvim"]
+	path = .config/nvim/.config/nvim
+	url = git@github.com:LazyVim/starter.git
+	branch = main
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:LazyVim/starter.git
+	branch = main
