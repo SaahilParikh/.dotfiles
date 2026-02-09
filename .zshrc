@@ -113,3 +113,4 @@ elif [ -d "$HOME/.dotfiles.git" ]; then
   alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 fi
 
+alias cat='bat'
