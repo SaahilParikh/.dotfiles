@@ -104,5 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Dotfiles bare repository alias
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 alias vim='nvim'
+
+# Smart dotfiles alias (works with ~/.dotfiles OR ~/.dotfiles.git)
+if [ -d "$HOME/.dotfiles" ]; then
+  alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+elif [ -d "$HOME/.dotfiles.git" ]; then
+  alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
+fi
+
