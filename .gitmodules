@@ -4,5 +4,5 @@
 	branch = main
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = https://github.com/LazyVim/starter.git
+	url = git@github.com:SaahilParikh/nvim-config.git
 	branch = main
