@@ -114,3 +114,4 @@ elif [ -d "$HOME/.dotfiles.git" ]; then
 fi
 
 alias cat='bat'
+bindkey -v
