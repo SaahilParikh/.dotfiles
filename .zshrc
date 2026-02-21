@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Dotfiles bare repository alias
 alias vim='nvim'
+alias v  ='vim'
 
 # Smart dotfiles alias (works with ~/.dotfiles OR ~/.dotfiles.git)
 if [ -d "$HOME/.dotfiles" ]; then
@@ -115,3 +116,4 @@ fi
 
 alias cat='bat'
 bindkey -v
+tmux
