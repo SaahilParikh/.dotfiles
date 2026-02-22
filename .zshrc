@@ -122,11 +122,35 @@ function zle-paste-clipboard() {
 zle -N zle-paste-clipboard
 bindkey -M vicmd 'p' zle-paste-clipboard
 
+function zle-paste-clipboard-before() {
+  LBUFFER=$(pbpaste)$LBUFFER
+}
+zle -N zle-paste-clipboard-before
+
+bindkey -M vicmd 'P' zle-paste-clipboard-before
 function zle-yank-clipboard() {
   zle vi-yank
   print -rn -- "$CUTBUFFER" | pbcopy
 }
 zle -N zle-yank-clipboard
 bindkey -M vicmd 'y' zle-yank-clipboard
+
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[1 q'   # block cursor
+  else
+    echo -ne '\e[5 q'   # beam cursor
+  fi
+  MODE="%{$fg[red]%}N%{$reset_color%}"
+  [[ $KEYMAP == vicmd ]] || MODE="%{$fg[green]%}I%{$reset_color%}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+zle -N zle-line-init zle-keymap-select
+
+PROMPT='${MODE} %~ %# '
+
+# Enter Normal Mode Quicker
+KEYTIMEOUT=1
 
 tmux
