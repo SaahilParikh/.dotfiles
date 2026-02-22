@@ -105,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Dotfiles bare repository alias
 alias vim='nvim'
-alias v  ='vim'
+alias v  ='vim'                 #
 
 # Smart dotfiles alias (works with ~/.dotfiles OR ~/.dotfiles.git)
 if [ -d "$HOME/.dotfiles" ]; then
@@ -116,4 +116,17 @@ fi
 
 alias cat='bat'
 bindkey -v
+function zle-paste-clipboard() {
+  LBUFFER+=$(pbpaste)
+}
+zle -N zle-paste-clipboard
+bindkey -M vicmd 'p' zle-paste-clipboard
+
+function zle-yank-clipboard() {
+  zle vi-yank
+  print -rn -- "$CUTBUFFER" | pbcopy
+}
+zle -N zle-yank-clipboard
+bindkey -M vicmd 'y' zle-yank-clipboard
+
 tmux
